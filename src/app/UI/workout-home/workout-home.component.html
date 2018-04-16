@@ -1,0 +1,108 @@
+<div class="form-group">
+  <div class="col-sm-12">
+     <app-message-display [messageDisplay]='messageDisplay' 
+     [messageType]='messageType' ></app-message-display>
+  </div>
+</div>
+
+<div *ngIf='displayChart'>
+<div class="row">
+  <div class="col-7">
+    <label><strong>Workout Time of Day</strong> </label>
+  </div> 
+  <div class="col-3">
+    <label><strong>{{chartDetails.WorkoutTimeDay}}</strong></label>
+  </div>  
+  <div class="col-2">
+    <label><strong>Min </strong></label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-7">
+    <label><strong>Workout Time of Week</strong> </label>
+  </div> 
+  <div class="col-3">
+    <label><strong> {{chartDetails.WorkoutTimeWeek}}</strong></label>
+  </div>  
+  <div class="col-2">
+    <label><strong>Min </strong></label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-7">
+    <label><strong>Workout Time of Month</strong> </label>
+  </div> 
+  <div class="col-3">
+    <label> <strong>{{chartDetails.WorkoutTimeMonth}}</strong></label>
+  </div>  
+  <div class="col-2">
+    <label><strong>Min</strong> </label>
+  </div>
+</div>
+
+  <div class="row"> 
+       
+    <div class="col-12">
+      <div class="center-block">
+    <p-chart type="bar" [options]='chartOptions' [data]="data1" ></p-chart>
+  </div> 
+   
+    </div>    
+</div>
+
+<div class="row">
+    <div class="col-7">
+      <label><strong>Week Total Calories Burnt</strong> </label>
+    </div> 
+    <div class="col-3">
+      <label> <strong>{{chartDetails.CaloriesBurnedWeek}}</strong></label>
+    </div>  
+    <div class="col-2">
+      <label> </label>
+    </div>
+  </div>
+
+
+  <div class="row"> 
+       
+      <div class="col-12">
+        <div class="center-block">
+      <p-chart type="bar" [options]='chartOptions' [data]="data2"></p-chart>
+    </div> 
+     
+      </div>    
+  </div>
+  <div class="row"> </div>
+  <div class="row">
+      <div class="col-7">
+        <label><strong>Month Total Calories Burnt</strong> </label>
+      </div> 
+      <div class="col-3">
+        <label> <strong>{{chartDetails.CaloriesBurnedMonth}}</strong></label>
+      </div>  
+      <div class="col-2">
+        <label> </label>
+      </div>
+    </div>
+
+    <div class="row" > 
+       
+      <div class="col-12">
+      <div class="center-block" >
+        <p-chart  type="bar" [options]='chartOptions' [data]="data3"></p-chart>
+      </div> 
+       
+        </div>    
+    </div>
+    <div class="row">
+        <div class="col-7">
+          <label><strong>Year Total Calories Burnt</strong> </label>
+        </div> 
+        <div class="col-3">
+          <label> <strong>{{chartDetails.CaloriesBurnedYear}}</strong></label>
+        </div>  
+        <div class="col-2">
+          <label> </label>
+        </div>
+      </div>
+</div>

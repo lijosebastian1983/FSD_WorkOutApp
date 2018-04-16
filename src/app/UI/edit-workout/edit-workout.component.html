@@ -1,0 +1,75 @@
+<p-dialog header="Add Category" [(visible)]="display" [width]="600" [height]="150" [modal]='true'>
+                <div class="row">
+                    <div class="col-9"> 
+                        <input [(ngModel)]="addCatName" type="text" class="form-control" id="categoryz">
+                    </div>
+                    <div class="col-3"> 
+                        <button type="submit" class="btn btn-primary" (click)="SaveCategory()" title="Update category" [disabled]='!addCatName'>Add</button>
+                    </div>            
+                </div>
+</p-dialog>
+
+<div class="form-group">
+        <div class="col-sm-12">
+           <app-message-display [messageDisplay]='messageDisplay' 
+           [messageType]='messageType' ></app-message-display>
+        </div>
+</div>
+
+
+<form class="form-horizontal" [formGroup]="form">
+<div class="row">
+        <div class="col-12">
+                <p class="h4">Edit Workout   </p>
+        </div>  
+</div>
+<div class="row">
+        <div class="col-3">
+                <label>Title </label>
+        </div> 
+        <div class="col-9">
+                <input  [(ngModel)]="wCollection.workout_title" type="text" class="form-control"  id="title"  formControlName="title">            
+        </div>  
+</div>
+<div class="row">
+        <div class="col-3">
+                <label>Note </label>
+        </div> 
+        <div class="col-9">
+                <textarea class="form-control" [(ngModel)]="wCollection.workout_note" rows="5" id="note"  formControlName="note"></textarea>
+        </div>  
+</div> 
+<div class="row">
+        <div class="col-3">
+                <label>Category </label>
+        </div> 
+        <div class="col-6">
+                <select class="form-control"  [(ngModel)]="wCollection.category_id"  id="category"  formControlName="category">
+                        <option *ngFor="let cat of categorys" value= {{cat.category_id}}>
+                           {{cat.category_name}}
+                        </option>
+                      </select>
+        </div> 
+        <div class="col-2">
+                <button type="button" class="btn btn-primary" (click)='RedirectToAddCategory()'   title="Add category">+</button>
+        </div>  
+        <div class="col-1">
+
+        </div> 
+</div>
+<div class="row">
+        <div class="col-3">
+              
+        </div> 
+        <div class="col-4">                
+                <button type="submit" class="btn btn-primary"  (click)='UpdateWorkoutCollection()'   title="Edit Workout"  [disabled]="!form.valid">Edit Workout</button>
+        </div>  
+        <div class="col-3">
+                <button type="button" class="btn btn-primary"   (click)='RedirectViewAll()'   title="Cancel">Cancel</button>
+        </div>
+        <div class="col-2">
+               
+        </div> 
+</div>
+
+</form>

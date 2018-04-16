@@ -1,0 +1,38 @@
+<p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>    
+<div class="form-group">
+        <div class="col-sm-12">
+           <app-message-display [messageDisplay]='messageDisplay' 
+           [messageType]='messageType' ></app-message-display>
+        </div>
+</div>
+
+<div class="row" style="margin-bottom: 10px">
+        <div class="col-12">
+                <input  [(ngModel)]="filterString" type="text" class="form-control" placeholder="Search">
+        </div>        
+</div>
+
+<div class="row" *ngFor="let d of (wCollections | workoutFilter: filterString)" style="margin:10px 0px">        
+        <div class="col-12"  style="border:1px solid #ffffff;">
+                <div class="row" style="margin:10px 0"> 
+            <div class="col-12">
+                <input  [(ngModel)]="d.WorkoutTitle" type="text" class="form-control"  readonly >  
+              </div>    
+            </div>
+            <div class="row" style="margin:10px 0">
+                    <div class="col-3">
+                            <button   type="button" class="btn btn-primary"  [routerLink]="['/EditWorkout',d.WorkoutId]"   title="Edit">Edit</button>
+                        </div>  
+            <div class="col-3">
+                    <button  type="button" class="btn btn-primary" (click)='DeleteWorkoutCollection(d)'   title="Delete">Delete</button>
+            </div>
+            <div class="col-3">
+                    <button   type="button" class="btn btn-primary" [disabled]="d.IsStarted" [routerLink]="['/StartWorkout',d.WorkoutId]"   title="Start">Start</button>
+            </div> 
+            <div class="col-3">
+                    <button   type="button" class="btn btn-primary" [disabled]="d.IsEnded" [routerLink]="['/EndWorkout',d.WorkoutId]"   title="End">End</button>
+                </div> 
+        </div>   
+        </div>       
+</div>
+ 
